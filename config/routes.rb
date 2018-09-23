@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'products#index'
   #devise_for :users
   resources :products
+  post 'add_product', to: 'invoices#add_product'
 end
