@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class InvoiceService
-  # Creates new invoice with product or adds it to existing invoice. False if fails
-  def add_prodcut(product)
-    @invoice = product
+  # Adds a product to incoice
+  def add_product(product)
+    InvoiceProduct.create(
+      product_id: product.id,
+      invoice_id: @invoice.id,
+      price: product.price
+    )
   end
 
   private

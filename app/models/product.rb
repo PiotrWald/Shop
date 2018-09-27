@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
-  has_one :ProductPriceHistory, dependent: :destroy
+  has_many :invoice_products, dependent: :destroy
+  has_many :products, through: :invoice_products
 end
