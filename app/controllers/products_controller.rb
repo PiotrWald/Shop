@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_product, only: i % (show destroy)
+  before_action :set_product, only: %i[show destroy]
 
   def index
     @products = Product.all
