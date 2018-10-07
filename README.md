@@ -17,7 +17,9 @@
 # Project: Add ElasticSearch to the project
   - Create suitable conditions for Elastic Search to be Usefull
     - Generate Comments
-      - build Comment model
+      + build Comment model
+      + add Comment factory
+      - add models tests
       - Comments belongs to User and Product
       - Seeed large amont of comments
       - add comments to products#show
