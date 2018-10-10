@@ -1,4 +1,7 @@
-table class="table"
+h1 class="text-primary" = @tag.body
+br
+
+table class="table table-striped"
   thead
     tr
       th scope="col" #
@@ -6,4 +9,4 @@ table class="table"
       th scope="col" Price
       th scope="col" Quantity
   tbody
-    = render @products
+    = render @tag.products.decorate

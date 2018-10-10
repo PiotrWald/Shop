@@ -10,12 +10,27 @@ class InvoiceService
           invoice_id: @invoice.id,
           price: product.price
         )
-        product.update_attribute!(:count, product.count - 1)
+        product.update!(count: product.count - 1)
       end
     rescue StandardError
       return false
     end
 
+    true
+  end
+
+  def remove_invoice_product(invoice_product)
+    return false if invoice_product.invoice_id != @invoice.id
+
+    begin
+      ActiveRecord::Base.transaction do
+        product = Product.find(invoice_product.product_id)
+        invoice_product.destroy!
+        product.update!(count: product.count + 1)
+      end
+    rescue StandardError
+      return false
+    end
     true
   end
 

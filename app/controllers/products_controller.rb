@@ -4,10 +4,16 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show destroy]
 
   def index
-    @products = Product.all
+    @products = Product.all.decorate
   end
 
-  def show; end
+  def show
+    @product = Product.where(id: params[:id])
+                      .includes({comments: :user}, :tags)
+                      .first
+                      .decorate
+    @new_comment = Comment.new
+  end
 
   def destroy
     redirect_to products_path if @product.destroy
@@ -16,6 +22,6 @@ class ProductsController < ApplicationController
   private
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id]).decorate
   end
 end

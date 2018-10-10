@@ -1,0 +1,14 @@
+h2
+  div class="d-flex p-2 justify-content-around"
+    = "Total: $#{@invoice.sum}"
+    = if @invoice.opened?
+      = link_to 'Proceed to payment', close_invoice_path, class: "btn btn-success text-light"
+table class="table"
+  thead
+    tr
+      th scope="col" #
+      th scope="col" Product
+      th scope="col" Price
+      th scope="col"
+  tbody
+    = render @invoice.invoice_products.decorate, locals: { invoice: @invoice }

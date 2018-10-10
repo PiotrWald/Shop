@@ -1,5 +1,5 @@
 nav class="navbar navbar-expand-lg navbar-light fixed-top bg-warning"
-  a class="navbar-brand" href="#" TheRubiestShop
+  a class="navbar-brand" href=(root_path) TheRubiestShop
   = image_tag('ruby.png', size: "25x25", alt: "Brand logo")
   button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
     span class="navbar-toggler-icon"
@@ -21,5 +21,7 @@ nav class="navbar navbar-expand-lg navbar-light fixed-top bg-warning"
           a class="dropdown-item" href=(destroy_user_session_path) Log out
           div class="dropdown-divider"
           a class="dropdown-item" href=(edit_user_registration_path) Account settings
+      li class="nav-item"
+        a class="nav-link" href=(invoices_path) Order history
     - if @current_invoice
       = link_to 'Your chart total is: $' + @current_invoice.sum, @current_invoice

@@ -1,4 +1,30 @@
-h3 = @product.name
-p = 'Product price: ' + @product.price.to_s
+h2 = @product.name
+br
+h4
+  - if user_signed_in?
+    = simple_form_for @product, method: :post, url: add_product_path do |f|
+      = f.input :id, as: :hidden
+      input name="origin[code]" type="hidden" value="2"
+      = f.submit 'Add to chart', class: 'text-light btn btn-lg btn-success'
+p class="d-inline-flex"
+  div Product price:
+  strong class="text-success" = @product.price.to_s
 p = @product.description
-p = 'Number of copies: ' + @product.count.to_s
+p
+  = 'Number of copies: '
+  strong class="text-success" = @product.count.to_s
+br
+h4 Tags
+- @product.tags.each do |tag|
+  = link_to "#{tag.decorate.body} ", tag,
+   class: 'text-primary btn btn-light border border-primary m-1 bg-white'
+br
+br
+h4 Comments
+- if user_signed_in?
+  = simple_form_for @new_comment, url: product_path(@product) do |f|
+    = f.input :body, as: :text, label: false, input_html: { rows: 6, style: 'width: 40%;'}
+    = f.submit 'Post', class: 'text-light btn btn-success m-1'
+table class="table table-sm"
+  tbody
+    = render @product.comments

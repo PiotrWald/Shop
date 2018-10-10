@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :products
   post 'add_product', to: 'invoices#add_product'
-  resources :invoices, only: :show
+  delete 'subtract_product/:id', to: 'invoices#remove_invoice_product'
+  resources :invoices, only: %i[show index]
+  resources :tags, only: :show
+  get 'close_invoice', to: 'invoices#close_invoice'
 end

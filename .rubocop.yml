@@ -13,7 +13,10 @@ AllCops:
    - 'app/views/**/*'
 
 Rails:
- Enabled: true
+  Enabled: true
+  Exclude:
+    - 'app/models/tag.rb'
+    - 'app/models/product.rb'
 
 Naming/VariableNumber:
   EnforcedStyle: 'snake_case'

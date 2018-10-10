@@ -1,0 +1,12 @@
+tr
+  th scope="row"
+    td
+      = link_to invoice_product.product.name, invoice_product.product
+    td = invoice_product.price
+    td
+      -if @invoice.opened?
+        = link_to 'Delete',
+                      "/subtract_product/#{invoice_product.id}",
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' },
+                       class: 'text-danger'

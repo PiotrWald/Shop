@@ -1,16 +1,16 @@
 tr
-    th scope="row"
-      td = link_to product.name, product
-      td = product.price
-      td = product.count
-      - if user_signed_in?
-        td
-          = simple_form_for product, method: :post, url: add_product_path do |f|
-            = f.input :id, as: :hidden
-            input name="origin[code]" type="hidden" value="1"
-            = f.submit '+'
-        -if current_user.admin?
-          td = link_to 'Delete',
-                 product_path(product),
-                             method: :delete,
-                             data: { confirm: 'Are you sure?' }
+  th scope="row"
+    td = link_to product.name, product
+    td = product.price
+    td = product.count
+    - if user_signed_in?
+      td
+        = simple_form_for product, method: :post, url: add_product_path do |f|
+          = f.input :id, as: :hidden
+          input name="origin[code]" type="hidden" value="1"
+          = f.submit '+', class: 'btn btn-ligth text-primary border-primary'
+      -if current_user.admin?
+        td = link_to 'Delete',
+               product_path(product),
+                           method: :delete,
+                           data: { confirm: 'Are you sure?' }
