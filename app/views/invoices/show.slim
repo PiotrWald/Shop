@@ -1,7 +1,7 @@
 h2
   div class="d-flex p-2 justify-content-around"
     = "Total: $#{@invoice.sum}"
-    = if @invoice.opened?
+    - if @invoice.opened?
       = link_to 'Proceed to payment', close_invoice_path, class: "btn btn-success text-light"
 table class="table"
   thead

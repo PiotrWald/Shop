@@ -35,7 +35,7 @@ class InvoicesController < ApplicationController
   end
 
   def index
-    @invoices = Invoice.where(:user_id, current_user.id)
+    @invoices = Invoice.where(user_id: current_user.id)
   end
 
   private
