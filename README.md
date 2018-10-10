@@ -37,7 +37,8 @@
       + add button to close invoic
       + add page invoices#index
       + prietyfy invoices
-      - add possibility to post comment
+      + add possibility to post comment
+      - adjust order history to current user only
   - Watch tutorial on ElasticSearch
   - Setup Elastic Search
     - install it and try to run as a service

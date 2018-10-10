@@ -22,8 +22,9 @@ br
 br
 h4 Comments
 - if user_signed_in?
-  = simple_form_for @new_comment, url: product_path(@product) do |f|
+  = simple_form_for @new_comment do |f|
     = f.input :body, as: :text, label: false, input_html: { rows: 6, style: 'width: 40%;'}
+    = f.input :product_id, :as => :hidden, :input_html => { :value => @product.id }
     = f.submit 'Post', class: 'text-light btn btn-success m-1'
 table class="table table-sm"
   tbody

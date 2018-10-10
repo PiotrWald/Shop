@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
                       .includes({comments: :user}, :tags)
                       .first
                       .decorate
+
     @new_comment = Comment.new
   end
 
