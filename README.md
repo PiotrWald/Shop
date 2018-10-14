@@ -1,5 +1,12 @@
 # README
 
+## Introduction
+
+Project sandbox for expermentations with RoR
+
+You can see it live here:
+https://rubyyshop.herokuapp.com/
+
 ## Development plan
   + integrate devise / bootstrap / overcommit / rubocop into project
   + initialize products with seeds
