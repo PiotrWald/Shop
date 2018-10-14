@@ -1,6 +1,6 @@
 # README
 
-# Development plan
+## Development plan
   + integrate devise / bootstrap / overcommit / rubocop into project
   + initialize products with seeds
   + make products index view
@@ -14,7 +14,7 @@
   - add administrator privilage
   - add possibility to click an entire row
 
-# Project: Add ElasticSearch to the project
+## Project: Add ElasticSearch to the project
   - Create suitable conditions for Elastic Search to be Usefull
     + Generate Comments
       + build Comment model
@@ -44,3 +44,10 @@
     - install it and try to run as a service
     - Add comunication between Rails and ES
     - ......
+
+## Code refactor
+  - close queries some queries in object
+  - use Form Object pattern
+## Future plans
+  - add internationalization
+  - 

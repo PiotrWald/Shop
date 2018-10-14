@@ -1,3 +1,7 @@
 tr
-  th scope="row" class="text-info" = comment.user.email
-  td = comment.body
+  th scope="row"
+    div
+      section class="text-info custom-text-email"
+        = comment.user.email
+      section class="ml-1 font-weight-normal"
+        = comment.body

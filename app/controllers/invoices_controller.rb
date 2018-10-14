@@ -16,7 +16,7 @@ class InvoicesController < ApplicationController
 
   def remove_invoice_product
     invoice_product = InvoiceProduct.find(params[:id])
-    invoice_service.remove_invoice_product(invoice_product)
+    @invoice_service.remove_invoice_product(invoice_product)
     redirect_to @invoice
   end
 

@@ -1,18 +1,24 @@
+br
 h2 = @product.name
 br
+img class="product-img" src="https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP770/iphonex.png" alt=""/
 h4
   - if user_signed_in?
     = simple_form_for @product, method: :post, url: add_product_path do |f|
       = f.input :id, as: :hidden
       input name="origin[code]" type="hidden" value="2"
       = f.submit 'Add to chart', class: 'text-light btn btn-lg btn-success'
-p class="d-inline-flex"
-  div Product price:
-  strong class="text-success" = @product.price.to_s
-p = @product.description
-p
-  = 'Number of copies: '
-  strong class="text-success" = @product.count.to_s
+table
+  tr
+    td
+      strong class="mr-5" Product price:
+    td
+      strong class="mr-5" Number of copies:
+  tr style="font-size: 2rem;"
+    td
+      strong = @product.price.to_s
+    td
+      strong class="text-success" = @product.count.to_s
 br
 h4 Tags
 - @product.tags.each do |tag|
