@@ -17,6 +17,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'draper'
+gem 'reform-rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

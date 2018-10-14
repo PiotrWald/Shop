@@ -2,19 +2,27 @@
 
 class CommentsController < ApplicationController
   def create
-    save_comment
-    redirect_to product_path(comment_params[:product_id])
+    if comment_form.validate(params[:comment])
+      comment_form.save
+      redirect_to product_path(product_id)
+    elsif Product.find(product_id)
+      @product = Product.where(id: product_id)
+                        .includes({comments: :user}, :tags)
+                        .first
+                        .decorate
+      render 'products/show'
+    else
+      redirect_to products_path
+    end
   end
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:body, :product_id)
+  def product_id
+    comment_form.product_id
   end
 
-  def save_comment
-    comment = Comment.new(comment_params)
-    comment.user_id = current_user.id
-    comment.save
+  def comment_form
+    @comment_form ||= CommentForm.new(Comment.new(user_id: current_user.id))
   end
 end

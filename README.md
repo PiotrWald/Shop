@@ -13,6 +13,7 @@
   - push to AWS if possible
   - add administrator privilage
   - add possibility to click an entire row
+  - add internationalization
 
 ## Project: Add ElasticSearch to the project
   - Create suitable conditions for Elastic Search to be Usefull
@@ -46,8 +47,6 @@
     - ......
 
 ## Code refactor
-  - close queries some queries in object
+  - close some queries in objects
   - use Form Object pattern
-## Future plans
-  - add internationalization
-  - 
+    - use Reform gem for commenting

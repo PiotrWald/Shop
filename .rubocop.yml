@@ -11,6 +11,7 @@ AllCops:
    - 'spec/support/**/*'
    - 'node_modules/**/*'
    - 'app/views/**/*'
+   - 'app/controllers/comments_controller.rb'
 
 Rails:
   Enabled: true

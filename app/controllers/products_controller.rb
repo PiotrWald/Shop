@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show destroy]
+  before_action :set_product, only: :destroy
 
   def index
     @products = Product.all.decorate
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
                       .first
                       .decorate
 
-    @new_comment = Comment.new
+    @comment_form = CommentForm.new(Comment.new)
   end
 
   def destroy
