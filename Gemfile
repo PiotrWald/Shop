@@ -18,14 +18,14 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'draper'
 gem 'reform-rails'
+gem 'faker'
+gem 'factory_bot_rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'faker'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
 end
 
 group :development do
